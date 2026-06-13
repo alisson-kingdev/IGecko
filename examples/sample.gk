@@ -1,0 +1,18 @@
+package main;
+
+const name = "mrx";
+var age: int = 18;
+
+func main(args) {
+    print("Hello, " + name);
+}
+
+func login(name: str, pass: int) -> bool {
+    if (name && pass) {
+        return true;
+    }
+    return false;
+}
+
+main("mrx");
+print(login(name, "123"));

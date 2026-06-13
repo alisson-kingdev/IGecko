@@ -1,0 +1,23 @@
+package main;
+
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+func main() {
+    print("=== Class Examples ===");
+    
+    var p1 = new Point(10, 20);
+    print("Point 1: x=" + p1.x + ", y=" + p1.y);
+    
+    p1.x = 30;
+    print("Updated p1.x: " + p1.x);
+    
+    var p2 = new Point(5, 15);
+    print("Point 2: x=" + p2.x + ", y=" + p2.y);
+}
+
+main();

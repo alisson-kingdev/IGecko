@@ -1,0 +1,47 @@
+package main;
+
+// ── Object literals ──
+
+const response = { status: 200, message: "ok" };
+print(`Response: ${response}`);
+print(`Status: ${response.status}`);
+print(`Message: ${response.message}`);
+
+const data = Object({ name: "mrx", age: 19 });
+print(`Data: ${data}`);
+print(`Name: ${data.name}`);
+print(`Age: ${data.age}`);
+
+// Test assignment
+data.age = 20;
+print(`Updated Age: ${data.age}`);
+
+// Test string keys
+const objWithStrings = { "full name": "John Doe", "active": true };
+print(`Object with string keys: ${objWithStrings}`);
+
+// ── JSON Module ──
+
+import json from "json";
+
+// Parse JSON strings into Gecko objects
+var user = json.parse('{"name":"Alice","age":30,"admin":false}');
+print("User: " + user.name + ", age: " + user.age);
+
+// Access nested object properties
+var config = json.parse('{"database":{"host":"localhost","port":5432}}');
+print("DB host: " + config.database.host);
+
+// Stringify objects back to JSON
+var str = json.stringify({ product: "Gecko", price: 0 });
+print("JSON string: " + str);
+
+// Pretty-print with indentation
+var pretty = json.prettify({ hello: "world", nested: { foo: 1, bar: true } }, 2);
+print("Pretty JSON:");
+print(pretty);
+
+// Read and write JSON files
+json.write("/tmp/igecko_demo.json", { msg: "saved!" });
+var loaded = json.read("/tmp/igecko_demo.json");
+print("File content: " + loaded.msg);

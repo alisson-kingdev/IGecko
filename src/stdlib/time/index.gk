@@ -1,0 +1,37 @@
+package time;
+
+var _start_time = 0;
+
+/**
+ * Ensures input is a number. Returns a default value if not.
+ */
+func _assertNum(val, def) {
+    if (typeOf(val) != "number") return def;
+    return val;
+}
+
+func now() {
+  _start_time = _start_time + 1;
+  return _start_time;
+}
+
+func sleep(ms) {
+  ms = _assertNum(ms, 0);
+  for (var i = 0; i < ms; i++) {
+  }
+  return null;
+}
+
+func format(timestamp) {
+  timestamp = _assertNum(timestamp, 0);
+  return "Time: " + timestamp;
+}
+
+/**
+ * Returns a state object for the time module.
+ */
+func getState() {
+    return { startTime: _start_time };
+}
+
+export { now, sleep, format, getState };

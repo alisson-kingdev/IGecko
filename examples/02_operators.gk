@@ -1,0 +1,31 @@
+package main;
+
+func main() {
+    print("\n=== Arithmetic Operators ===");
+    print(`5 + 3 = ${5 + 3}`);
+    print(`10 - 4 = ${10 - 4}`);
+    print(`6 * 7 = ${6 * 7}`);
+    print(`15 / 4 = ${15 / 4}`);
+    print(`17 % 5 = ${17 % 5}`);
+    
+    print("\n=== Comparison Operators ===");
+    print(`5 == 5: ${5 == 5}`);
+    print(`3 != 4: ${3 != 4}`);
+    print(`2 < 5: ${2 < 5}`);
+    print(`7 <= 7: ${7 <= 7}`);
+    print(`8 > 4: ${8 > 4}`);
+    print(`9 >= 10: ${9 >= 10}`);
+    
+    print("\n=== Logical Operators ===");
+    print(`true && true: ${true && true}`);
+    print(`true && false: ${true && false}`);
+    print(`false || true: ${false || true}`);
+    print(`!false: ${!false}`);
+    print(`!true: ${!true}`);
+    
+    print("\n=== String Operations ===");
+    print(`Hello + World: ${"Hello" + " " + "World"}`);
+    print(`Number + String: ${42 + " is the answer\n"}`);
+}
+
+main();

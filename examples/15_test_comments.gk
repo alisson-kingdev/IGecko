@@ -1,0 +1,17 @@
+// Este é um comentário de linha
+package main;
+
+/**
+ * Função de exemplo
+ * @param a: number - primeiro número
+ * @param b: number - segundo número
+ */
+func add(a, b) {
+    return a + b; // comentário inline
+}
+
+func main(args) {
+    print(add(2, 3));
+}
+
+main("ok");

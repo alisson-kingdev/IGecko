@@ -1,0 +1,77 @@
+package main;
+
+import string from "string";
+
+func main() {
+    print("=== String Library Examples ===\n");
+
+    // toString
+    print("toString(null): " + string.toString(null));
+    print("toString(123): " + string.toString(123));
+    print("toString(true): " + string.toString(true));
+
+    // concat
+    print("concat('abc', 123): " + string.concat("abc", 123));
+    print("concat('x', 'y'): " + string.concat("x", "y"));
+
+    // join (apenas duas strings)
+    print("join('-', 'hello', 'world'): " + string.join("-", "hello", "world"));
+
+    // length
+    print("\nlength('hello'): " + string.length("hello"));
+    print("length(''): " + string.length(""));
+
+    // charAt
+    print("charAt('hello', 0): " + string.charAt("hello", 0));
+    print("charAt('hello', 2): " + string.charAt("hello", 2));
+    print("charAt('hello', 10): '" + string.charAt("hello", 10) + "'");
+
+    // charCodeAt
+    print("charCodeAt('ABC', 0): " + string.charCodeAt("ABC", 0));
+    print("charCodeAt('ABC', 2): " + string.charCodeAt("ABC", 2));
+    print("charCodeAt('ABC', 5): " + string.charCodeAt("ABC", 5));
+
+    // substring
+    print("substring('hello', 1, 4): " + string.substring("hello", 1, 4));
+    print("substring('hello', 0, 3): " + string.substring("hello", 0, 3));
+
+    // contains
+    print("contains('hello world', 'world'): " + string.contains("hello world", "world"));
+    print("contains('hello world', 'xyz'): " + string.contains("hello world", "xyz"));
+
+    // indexOf
+    print("indexOf('hello world', 'world'): " + string.indexOf("hello world", "world"));
+    print("indexOf('hello world', 'xyz'): " + string.indexOf("hello world", "xyz"));
+
+    // includes (alias)
+    print("includes('hello world', 'world'): " + string.includes("hello world", "world"));
+
+    // startsWith
+    print("startsWith('hello world', 'hello'): " + string.startsWith("hello world", "hello"));
+    print("startsWith('hello world', 'world'): " + string.startsWith("hello world", "world"));
+
+    // endsWith
+    print("endsWith('hello world', 'world'): " + string.endsWith("hello world", "world"));
+    print("endsWith('hello world', 'hello'): " + string.endsWith("hello world", "hello"));
+
+    // replace
+    print("replace('hello world', 'world', 'there'): " + string.replace("hello world", "world", "there"));
+    print("replace('hello world', 'xyz', 'abc'): " + string.replace("hello world", "xyz", "abc"));
+
+    // slice (mesmo que substring)
+    print("slice('hello world', 0, 5): " + string.slice("hello world", 0, 5));
+
+    // repeat
+    print("repeat('abc', 3): " + string.repeat("abc", 3));
+    print("repeat('-', 5): " + string.repeat("-", 5));
+
+    // toUpperCase / toLowerCase
+    print("\ntoUpperCase('Hello World'): " + string.toUpperCase("Hello World"));
+    print("toLowerCase('Hello World'): " + string.toLowerCase("Hello World"));
+
+    // trim
+    print("trim('  hello  '): '" + string.trim("  hello  ") + "'");
+    print("trim('hello'): '" + string.trim("hello") + "'");
+}
+
+main();

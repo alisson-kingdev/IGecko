@@ -1,0 +1,51 @@
+package termcolor;
+
+/**
+ * Ensures input is a string. Returns empty string if not.
+ */
+func _assertString(val) {
+    if (typeOf(val) != "string") return "" + val;
+    return val;
+}
+
+func red(text) {
+  return "\033[31m" + _assertString(text) + "\033[0m";
+}
+
+func green(text) {
+  return "\033[32m" + _assertString(text) + "\033[0m";
+}
+
+func blue(text) {
+  return "\033[34m" + _assertString(text) + "\033[0m";
+}
+
+func yellow(text) {
+  return "\033[33m" + _assertString(text) + "\033[0m";
+}
+
+func magenta(text) {
+  return "\033[35m" + _assertString(text) + "\033[0m";
+}
+
+func cyan(text) {
+  return "\033[36m" + _assertString(text) + "\033[0m";
+}
+
+func white(text) {
+  return "\033[37m" + _assertString(text) + "\033[0m";
+}
+
+func bold(text) {
+  return "\033[1m" + _assertString(text) + "\033[0m";
+}
+
+func underline(text) {
+  return "\033[4m" + _assertString(text) + "\033[0m";
+}
+
+func reset() {
+  return "\033[0m";
+}
+
+export { red, green, blue, yellow, magenta, cyan, white, bold, underline, reset };

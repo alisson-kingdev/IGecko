@@ -1,0 +1,9 @@
+// Module exporting functions that reference globals via upvalue resolution.
+// This specifically tests the Compiler::resolveUpvalue path which previously
+// had infinite recursion (missing currentState switch on recursive call).
+
+func check(x) {
+    return typeOf(x) == "number" ? x * 2 : -1;
+}
+
+export { check };

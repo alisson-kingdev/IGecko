@@ -1,0 +1,14 @@
+var add = func(a: number, b: number) {
+  return a + b;
+};
+
+print(add(1, 2)); // Should print 3
+
+var multiplier = func(factor: number) {
+  return func(x: number) {
+    return x * factor;
+  };
+};
+
+var double = multiplier(2);
+print(double(5)); // Should print 10

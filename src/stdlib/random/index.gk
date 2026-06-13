@@ -1,0 +1,36 @@
+package random;
+
+var _seed = 123456789;
+
+/**
+ * Ensures input is a number. Returns a default value if not.
+ */
+func _assertNum(val, def) {
+    if (typeOf(val) != "number") return def;
+    return val;
+}
+
+func setSeed(s) {
+    _seed = _assertNum(s, _seed);
+}
+
+func random() {
+    _seed = (_seed * 1103515245 + 12345) % 2147483648;
+    return _seed / 2147483648.0;
+}
+
+func randint(a, b) {
+    a = _assertNum(a, 0);
+    b = _assertNum(b, 100);
+    _seed = (_seed * 1103515245 + 12345) % 2147483648;
+    return a + (_seed % (b - a + 1));
+}
+
+/**
+ * Returns a configuration object for the current random state.
+ */
+func getState() {
+    return { seed: _seed };
+}
+
+export { setSeed, random, randint, getState };

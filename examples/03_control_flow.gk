@@ -1,0 +1,54 @@
+package main;
+
+func main() {
+    print("=== If-Else ===");
+    var temperature = 25;
+    
+    if (temperature > 30) {
+        print("Hot!");
+    } else {
+        if (temperature > 20) {
+            print("Warm");
+        } else {
+            if (temperature > 10) {
+                print("Cool");
+            } else {
+                print("Cold");
+            }
+        }
+    }
+    
+    var score = 85;
+    if (score >= 90) {
+        print("Grade: A");
+    } else if (score >= 80) {
+        print("Grade: B");
+    } else if (score >= 70) {
+        print("Grade: C");
+    } else {
+        print("Grade: F");
+    }
+    
+    print("=== While Loop ===");
+    var i = 0;
+    while (i < 5) {
+        print("Count: " + i);
+        i = i + 1;
+    }
+    
+    print("=== For Loop ===");
+    for (var j = 0; j < 5; j = j + 1) {
+        print("For count: " + j);
+    }
+    
+    print("=== Nested Loops ===");
+    for (var row = 0; row < 3; row = row + 1) {
+        var line = "";
+        for (var col = 0; col < 3; col = col + 1) {
+            line = line + "* ";
+        }
+        print(line);
+    }
+}
+
+main();

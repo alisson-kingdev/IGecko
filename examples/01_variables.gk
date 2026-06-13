@@ -1,0 +1,28 @@
+package main;
+
+var name = "Gecko";
+var version = 1.0;
+var isAwesome = true;
+
+const PI = 3.14159;
+const MAX_SIZE = 100;
+const GREETING = "Hello";
+
+func main() {
+    print("=== Variables and Constants ===");
+    
+    print("name: " + name);
+    print("version: " + version);
+    print("isAwesome: " + isAwesome);
+    
+    print("PI: " + PI);
+    print("MAX_SIZE: " + MAX_SIZE);
+    print("GREETING: " + GREETING);
+    
+    name = "New Gecko";
+    version = 2.0;
+    print("Updated name: " + name);
+    print("Updated version: " + version);
+}
+
+main();

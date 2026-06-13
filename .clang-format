@@ -1,0 +1,138 @@
+---
+Language: Cpp
+
+# Base
+BasedOnStyle: Google
+Standard: Latest
+
+# Indentação
+UseTab: Never
+IndentWidth: 2
+ContinuationIndentWidth: 4
+TabWidth: 2
+
+# Comprimento de linha
+ColumnLimit: 100
+
+# Chaves
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: Never
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+# Funções
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: Yes
+PenaltyReturnTypeOnItsOwnLine: 60
+
+# Classes / structs
+AllowShortEnumsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+
+# Espaçamento
+SpaceBeforeParens: ControlStatements
+SpaceBeforeCpp11BracedList: false
+SpacesInAngles: Never
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Ponteiros e referências
+PointerAlignment: Left
+ReferenceAlignment: Left
+DerivePointerAlignment: false
+
+# Includes
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<.*>$'
+    Priority: 1
+  - Regex: '^".*"$'
+    Priority: 2
+
+# Quebras
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+ConstructorInitializerIndentWidth: 4
+
+# Templates modernos
+AlignAfterOpenBracket: Align
+BinPackArguments: false
+BinPackParameters: false
+
+# Lambdas
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Namespaces
+CompactNamespaces: false
+FixNamespaceComments: true
+ShortNamespaceLines: 1
+
+# C++20
+IndentRequiresClause: true
+RequiresClausePosition: OwnLine
+RequiresExpressionIndentation: OuterScope
+
+# Conceitos / módulos
+SpaceBeforeRangeBasedForLoopColon: true
+
+# Operadores
+BreakBeforeBinaryOperators: NonAssignment
+
+# Strings
+AlwaysBreakBeforeMultilineStrings: false
+
+# Comentários
+ReflowComments: true
+SpacesBeforeTrailingComments: 1
+
+# Empty lines
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+
+# Macros comuns
+StatementMacros:
+  - Q_UNUSED
+  - QT_REQUIRE_VERSION
+  - MY_ASSERT
+
+# Namespaces e access modifiers
+AccessModifierOffset: -2
+EmptyLineBeforeAccessModifier: LogicalBlock
+EmptyLineAfterAccessModifier: Never
+
+# Switch
+IndentCaseLabels: true
+IndentCaseBlocks: true
+
+# Qualifiers
+QualifierAlignment: Left
+SpaceAfterTemplateKeyword: false
+
+# Arrays/listas longas
+Cpp11BracedListStyle: true
+
+# Experimental modernos
+InsertBraces: true
+RemoveSemicolon: false
+SeparateDefinitionBlocks: Always
+
+...

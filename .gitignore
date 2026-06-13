@@ -1,0 +1,31 @@
+# Pastas de Compilação (Build) 
+build/
+build_coverage
+.build_coverage
+.build/
+bin/
+out/
+
+# Configuracao de Agents 
+.claude 
+.gemini 
+.qwen 
+.opencode
+opencode.json
+
+# Arquivos de Dump e Temporários 
+dump.txt
+dump.*
+*.log
+*.tmp
+
+# IDEs e Editores 
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Termux e Sistemas Operacionais 
+.DS_Store
+Thumbs.db

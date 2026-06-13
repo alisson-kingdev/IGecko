@@ -1,0 +1,40 @@
+package main;
+
+func add(a, b) {
+    return a + b;
+}
+
+func subtract(a, b) {
+    return a - b;
+}
+
+func greet(name) {
+    return "Hello, " + name + "!";
+}
+
+func isEven(n) {
+    if (n % 2 == 0) {
+        return true;
+    }
+    return false;
+}
+
+func factorial(n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+func main() {
+    print("=== Function Examples ===");
+    print("add(5, 3) = " + add(5, 3));
+    print("subtract(10, 4) = " + subtract(10, 4));
+    print("greet('World') = " + greet("World"));
+    print("isEven(4) = " + isEven(4));
+    print("isEven(5) = " + isEven(5));
+    print("factorial(5) = " + factorial(5));
+    print("factorial(0) = " + factorial(0));
+}
+
+main();

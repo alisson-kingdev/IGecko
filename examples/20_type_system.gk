@@ -1,0 +1,16 @@
+package main;
+
+const obj = { name: "mrx", age: 19 };
+var pi = 3.14159;
+var num = 10;
+
+print(`typeOf("test"): ${typeOf("test")}`);
+print(`typeOf(10): ${typeOf(10)}`);
+print(`typeOf(obj): ${typeOf(obj)}`);
+
+print(`pi.type(): ${pi.type()}`);
+print(`num.type(): ${num.type()}`);
+print(`obj.type(): ${obj.type()}`);
+
+func test() {}
+print(`Function type: ${typeOf(test)}`);

@@ -1,0 +1,30 @@
+// @skip - interactive server (blocks on listen())
+
+import http from "http";
+
+
+var app = http.createServer();
+
+app.get("/", func(req, res) {
+    res.send(`
+    <html>
+    <head>
+      <meta chaset="UTF-8">
+      <title>Test</title>
+    </head>
+      <h1 style="font-size: 25px; font-family: Monospace">Hello from IGecko! 🦎</h1>
+  </html>`);
+});
+
+app.get("/api/data", func(req, res) {
+  res.json({name: "Gecko", version: 1.5});
+});
+
+app.post("/api/submit", func(req, res) {
+  res.status(201);
+  res.json({received: true});
+});
+
+app.listen(8080);
+
+http.serveStatic(8080, "./public");

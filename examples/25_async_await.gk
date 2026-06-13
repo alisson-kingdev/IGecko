@@ -1,0 +1,36 @@
+import http;
+
+print("=== Async Sleep (manual via promise) ===");
+
+async func delayedSum(a, b) {
+  return a + b;
+}
+
+var promise = delayedSum(3, 4);
+print(promise);
+
+var result = await promise;
+print("Await result:");
+print(result);
+
+print("");
+print("=== Async HTTP (using http.getAsync) ===");
+
+try {
+  var httpPromise = http.getAsync("https://httpbin.org/get");
+	print("Got HTTP promise, waiting for response...");
+
+  var httpResult = await httpPromise;
+  print("HTTP response status:");
+  print(httpResult.status);
+
+  if (httpResult.body != null) {
+    print("HTTP body:");
+    print(httpResult.body);
+  }
+} catch (e) {
+  print(e);
+}
+
+print("");
+print("Done.");

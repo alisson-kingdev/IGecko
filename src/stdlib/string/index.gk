@@ -1,0 +1,251 @@
+package string;
+
+/**
+ * Converts a value to its string representation.
+ * For example, toString(null) returns "null", toString(123) returns "123".
+ * @param value: any - The value to convert.
+ * @returns string - The string representation of the value.
+ */
+func toString(value) {
+  if (value == null) return "null";
+  if (typeOf(value) == "string") return value;
+  if (typeOf(value) == "number") return "" + value; // Isso deve funcionar com o novo interpretador
+  if (typeOf(value) == "boolean") return value ? "true" : "false";
+  return "" + value;
+}
+
+/**
+ * Joins two strings with a separator.
+ * For example, join(", ", "hello", "world") returns "hello, world".
+ * @param separator: string - The separator to place between the two strings.
+ * @param a: string - The first string.
+ * @param b: string - The second string.
+ * @returns string - The concatenated result.
+ */
+func join(separator, a, b) {
+  return a + separator + b;
+}
+
+/**
+ * Concatenates two values by converting them to strings.
+ * For example, concat(123, true) returns "123true".
+ * @param a: any - The first value.
+ * @param b: any - The second value.
+ * @returns string - The concatenated string.
+ */
+func concat(a, b) {
+  return toString(a) + toString(b);
+}
+
+/**
+ * Returns the length of a string.
+ * For example, length("hello") returns 5.
+ * @param str: string - The input string.
+ * @returns int - The number of characters in the string.
+ */
+func length(str) {
+  if (typeOf(str) != "string") return 0;
+  return str.length;
+}
+
+/**
+ * Returns the character at a given index in a string.
+ * For example, charAt("hello", 1) returns "e".
+ * @param str: string - The source string.
+ * @param index: int - The position (0-based).
+ * @returns string - The character at the index, or an empty string if out of bounds.
+ */
+func charAt(str, index) {
+  return str.charAt(index);
+}
+
+/**
+ * Extracts a substring from start index (inclusive) to end index (exclusive).
+ * For example, substring("hello world", 0, 5) returns "hello".
+ * @param str: string - The source string.
+ * @param start: int - The starting index.
+ * @param end: int - The ending index (exclusive).
+ * @returns string - The extracted substring.
+ */
+func substring(str, start, end) {
+  return str.substring(start, end);
+}
+
+/**
+ * Returns the Unicode code point of the character at a given index.
+ * For example, charCodeAt("ABC", 1) returns 66.
+ * @param str: string - The source string.
+ * @param index: int - The position (0-based).
+ * @returns int - The code point, or -1 if index is out of bounds.
+ */
+func charCodeAt(str, index) {
+  return str.charCodeAt(index);
+}
+
+/**
+ * Checks if a string contains another substring.
+ * For example, contains("hello world", "world") returns true.
+ * @param str: string - The string to search within.
+ * @param substr: string - The substring to look for.
+ * @returns boolean - True if found, false otherwise.
+ */
+func contains(str, substr) {
+  return str.indexOf(substr) != -1;
+}
+
+/**
+ * Splits a string by a separator into an array of substrings.
+ * For example, split("a,b,c", ",") returns ["a", "b", "c"].
+ * @param str: string - The string to split.
+ * @param separator: string - The delimiter.
+ * @returns array - An array of substrings.
+ */
+func split(str, separator) {
+  if (typeOf(str) != "string" || typeOf(separator) != "string") {
+    return [];
+  }
+  
+  var result = [];
+  var start = 0;
+  var pos = str.indexOf(separator);
+  
+  while (pos != -1) {
+    result.push(str.substring(start, pos));
+    start = pos + separator.length;
+    pos = str.indexOf(separator, start);
+  }
+  result.push(str.substring(start, str.length));
+  return result;
+}
+
+/**
+ * Converts a string to uppercase.
+ * For example, toUpperCase("Hello") returns "HELLO".
+ * @param str: string - The input string.
+ * @returns string - The uppercase version.
+ */
+func toUpperCase(str) {
+  if (typeOf(str) != "string") return "";
+  return str.toUpperCase();
+}
+
+/**
+ * Converts a string to lowercase.
+ * For example, toLowerCase("Hello") returns "hello".
+ * @param str: string - The input string.
+ * @returns string - The lowercase version.
+ */
+func toLowerCase(str) {
+  return str.toLowerCase();
+}
+
+/**
+ * Removes leading and trailing whitespace from a string.
+ * For example, trim("  hello  ") returns "hello".
+ * @param str: string - The input string.
+ * @returns string - The trimmed string.
+ */
+func trim(str) {
+  return str.trim();
+}
+
+/**
+ * Returns the first index at which a substring is found, or -1 if not found.
+ * For example, indexOf("hello world", "world") returns 6.
+ * @param str: string - The string to search within.
+ * @param substr: string - The substring to locate.
+ * @returns int - The start index, or -1.
+ */
+func indexOf(str, substr) {
+  return str.indexOf(substr);
+}
+
+/**
+ * Replaces the first occurrence of a substring with a replacement.
+ * For example, replace("hello world", "world", "there") returns "hello there".
+ * @param str: string - The original string.
+ * @param searchValue: string - The substring to replace.
+ * @param replaceValue: string - The replacement string.
+ * @returns string - The modified string.
+ */
+func replace(str, searchValue, replaceValue) {
+  return str.replace(searchValue, replaceValue);
+}
+
+/**
+ * Checks if a string contains a substring (alias for contains).
+ * For example, includes("hello world", "world") returns true.
+ * @param str: string - The string to search within.
+ * @param substr: string - The substring to look for.
+ * @returns boolean - True if found, false otherwise.
+ */
+func includes(str, substr) {
+  return indexOf(str, substr) != -1;
+}
+
+/**
+ * Checks if a string ends with a given suffix.
+ * For example, endsWith("hello world", "world") returns true.
+ * @param str: string - The string to check.
+ * @param suffix: string - The suffix to test.
+ * @returns boolean - True if ends with suffix, false otherwise.
+ */
+func endsWith(str, suffix) {
+  return indexOf(str, suffix) == length(str) - length(suffix);
+}
+
+/**
+ * Checks if a string starts with a given prefix.
+ * For example, startsWith("hello world", "hello") returns true, while startsWith("hello world", "world") returns false.
+ * @param str: string - The string to check.
+ * @param prefix: string - The prefix to test.
+ * @returns boolean - True if starts with prefix, false otherwise.
+ */
+func startsWith(str, prefix) {
+  return indexOf(str, prefix) == 0;
+}
+
+/**
+ * Extracts a slice (substring) from a string between two indices.
+ * For example, slice("hello world", 0, 5) returns "hello@%".
+ * @param str: string - The string to slice.
+ * @param start: int - The starting index.
+ * @param end: int - The ending index.
+ * @returns string - The extracted substring.
+ */
+func slice(str, start, end) {
+  return substring(str, start, end);
+}
+
+/**
+ * Repeats a string a given number of times.
+ * For example, repeat("abc", 3) returns "abcabcabc@%".
+ * @param str: string - The string to repeat.
+ * @param count: int - The number of times to repeat the string.
+ * @returns string - A new string that is the original string repeated count times.
+ */
+func repeat(str, count) {
+  return str.repeat(count);
+}
+
+export { 
+  toString, 
+  concat, 
+  join, 
+  contains, 
+  split, 
+  toUpperCase, 
+  toLowerCase, 
+  trim, 
+  indexOf, 
+  includes, 
+  endsWith, 
+  startsWith, 
+  slice,
+  replace,
+  repeat,
+  charAt,
+  charCodeAt,
+  length,
+  substring
+};

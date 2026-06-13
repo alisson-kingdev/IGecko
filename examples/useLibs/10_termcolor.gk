@@ -1,0 +1,28 @@
+package main;
+
+import { 
+  red, 
+  green, 
+  blue, 
+  yellow, 
+  magenta, 
+  cyan, 
+  white, 
+  bold, 
+  underline, 
+  reset 
+} from "termcolor";
+
+func main() {
+    print(bold("\n=== Termcolor Library ==="));
+    print(red("This is red text!"));
+    print(green("This is green text!"));
+    print(blue("This is blue text!"));
+    print(yellow("This is yellow text!"));
+
+    // Use simple string concat
+    var msg = "Success: " + "Operation completed!";
+    print(green(msg));
+}
+
+main();

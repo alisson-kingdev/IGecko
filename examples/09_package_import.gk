@@ -1,0 +1,21 @@
+package main;
+
+// Import math as a package with namespace
+import math from "math";
+import random from "random";
+
+func main() {
+    print("=== Package Import ===");
+    
+    print("math.abs(-5) = " + math.abs(-5));
+    print("math.sqrt(16) = " + math.sqrt(16));
+    print("math.add(5, 3) = " + math.add(5, 3));
+    print("math.pi() = " + math.pi());
+    print("math.max(10, 20) = " + math.max(10, 20));
+    
+    print("\n=== Random Package ===");
+    print("random.random() = " + random.random());
+    print("random.randint(1, 100) = " + random.randint(1, 100));
+}
+
+main();

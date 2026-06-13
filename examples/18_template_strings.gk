@@ -1,0 +1,10 @@
+package main;
+
+var name = "mrx";
+const age = 19;
+
+func main() {
+  print(`Ola me chamo ${name} e tenho ${age} anos!`);
+}
+
+main();

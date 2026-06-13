@@ -1,0 +1,7 @@
+// Test: module import with function referencing globals
+// Exercises Compiler::resolveUpvalue recursion fix for VM backend
+
+import mod from "./28_vm_module_test/index.gk";
+
+print(mod.check(21));
+.

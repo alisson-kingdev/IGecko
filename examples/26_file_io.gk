@@ -1,0 +1,66 @@
+import fs;
+
+print("=== File I/O Module ===");
+
+// Write and read
+fs.write("hello.txt", "Hello, Gecko!");
+print("write: OK");
+print("read: " + fs.read("hello.txt"));
+
+// Append and readLines
+fs.append("hello.txt", "\nLine 2");
+fs.append("hello.txt", "\nLine 3");
+var lines = fs.readLines("hello.txt");
+print("readLines: " + lines.size + " lines");
+
+// exists, isFile, isDir
+print("exists: " + fs.exists("hello.txt"));
+print("isFile: " + fs.isFile("hello.txt"));
+print("isDir: " + fs.isDir("hello.txt"));
+
+// size, extension, basename, dirname
+print("size: " + fs.size("hello.txt"));
+print("extension: " + fs.extension("hello.txt"));
+print("basename: " + fs.basename("hello.txt"));
+print("dirname: " + fs.dirname("hello.txt"));
+print("abs: " + fs.abs("hello.txt"));
+
+// mkdir, ls, lsFiles, lsDirs
+fs.mkdir("testdir");
+print("mkdir: OK");
+fs.write("testdir/note.txt", "inside dir");
+var all = fs.ls(".");
+print("ls count: " + all.size);
+var onlyFiles = fs.lsFiles("testdir");
+print("lsFiles: " + onlyFiles.size + " file(s)");
+var onlyDirs = fs.lsDirs(".");
+print("lsDirs: " + onlyDirs.size + " dir(s)");
+
+// copy, move, remove
+fs.copy("hello.txt", "hello_copy.txt");
+print("copy: OK");
+fs.move("hello_copy.txt", "hello_moved.txt");
+print("move: OK");
+fs.remove("hello_moved.txt");
+print("remove: OK");
+
+// stat
+var info = fs.stat("hello.txt");
+print("stat.size: " + info.size);
+print("stat.isFile: " + info.isFile);
+print("stat.isDir: " + info.isDir);
+
+// Path operations
+print("join: " + fs.join("a", "b", "c.txt"));
+print("normalize: " + fs.normalize("a/./b/../c.txt"));
+print("sep: " + fs.sep());
+print("delimiter: " + fs.delimiter());
+
+// rmrf cleanup
+fs.rmrf("testdir");
+print("rmrf: OK");
+fs.remove("hello.txt");
+print("cleanup: OK");
+
+print("");
+print("Done.");

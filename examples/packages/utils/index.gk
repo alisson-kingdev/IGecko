@@ -1,0 +1,28 @@
+package utils;
+
+func double(x) {
+	return x * 2;
+}
+
+func triple(x) {
+	return x * 3;
+}
+
+func isPositive(x) {
+	return x > 0;
+}
+
+func factorial(n) {
+	if (n <= 1) return 1;
+	return n * factorial(n - 1);
+}
+
+func fibonacci(n) {
+	if (n <= 0) return 0;
+	if (n == 1) return 1;
+	return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// Package variables
+const VERSION = "1.0.0";
+const AUTHOR = "Gecko Team";

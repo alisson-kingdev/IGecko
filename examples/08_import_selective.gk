@@ -1,0 +1,24 @@
+package main;
+
+// Import specific functions from math
+import { abs, sqrt, add, max, min } from "math";
+
+// Import specific function from random
+import { random, randint } from "random";
+
+func main() {
+    print("=== Selective Import ===");
+    
+    print("abs(-10) = " + abs(-10));
+    print("sqrt(25) = " + sqrt(25));
+    print("add(5, 3) = " + add(5, 3));
+    print("max(100, 200) = " + max(100, 200));
+    print("min(50, 75) = " + min(50, 75));
+    
+    print("\n=== Random ===");
+    print("random() = " + random());
+    print("randint(1, 100) = " + randint(1, 100));
+    print("randint(1, 10) = " + randint(1, 10));
+}
+
+main();

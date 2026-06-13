@@ -1,0 +1,30 @@
+package main;
+
+func divide(a, b) {
+    if (b == 0) {
+        return a / b;
+    }
+    return a / b;
+}
+
+func main() {
+    print("=== Try-Catch Examples ===");
+    
+    try {
+        var result = divide(10, 0);
+        print("Result 1: " + result);
+    } catch (error) {
+        print("Caught error: " + error);
+    }
+    
+    try {
+        var result = divide(10, 2);
+        print("Result 2: " + result);
+    } catch (error) {
+        print("Caught error: " + error);
+    }
+    
+    print("Program continues normally after error handling");
+}
+
+main();

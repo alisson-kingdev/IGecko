@@ -1,0 +1,7 @@
+print("Testing input...");
+
+var name = input("Enter your name: ");
+print(`Hello, ${name}!`);
+
+var age = input("Enter your age: ", {});
+print(`You are  ${age} years old.`);

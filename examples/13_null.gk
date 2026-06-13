@@ -1,0 +1,21 @@
+package main;
+
+func main() {
+    var x = null;
+    print("x is: " + x);
+
+    if (x == null) {
+        print("x is null");
+    } else {
+        print("x is not null");
+    }
+
+    func getNull() {
+        return null;
+    }
+
+    var y = getNull();
+    print("getNull() returned: " + y);
+}
+
+main();

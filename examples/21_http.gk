@@ -1,0 +1,53 @@
+import http;
+
+// Test GET request
+print("Testing HTTP GET request...");
+try {
+  var response = http.get("https://httpbin.org/get");
+  print("Status: " + response.status);
+  print("Success: GET request works!");
+} catch (e) {
+  print("GET request failed: " + e);
+}
+
+// Test POST request
+print("\nTesting HTTP POST request...");
+try {
+  var response = http.post("https://httpbin.org/post", "test=data");
+  print("Status: " + response.status);
+  print("Success: POST request works!");
+} catch (e) {
+  print("POST request failed: " + e);
+}
+
+// Test PUT request
+print("\nTesting HTTP PUT request...");
+try {
+  var response = http.put("https://httpbin.org/put", "update=data");
+  print("Status: " + response.status);
+  print("Success: PUT request works!");
+} catch (e) {
+  print("PUT request failed: " + e);
+}
+
+// Test DELETE request
+print("\nTesting HTTP DELETE request...");
+try {
+  var response = http.delete("https://httpbin.org/delete");
+  print("Status: " + response.status);
+  print("Success: DELETE request works!");
+} catch (e) {
+  print("DELETE request failed: " + e);
+}
+
+// Test generic REQUEST (POST)
+print("\nTesting HTTP generic REQUEST (POST)...");
+try {
+  var response = http.request("POST", "https://httpbin.org/post", ["Content-Type: text/plain"], "generic=data");
+  print("Status: " + response.status);
+  print("Success: Generic REQUEST POST works!");
+} catch (e) {
+  print("Generic REQUEST failed: " + e);
+}
+
+print("\nHTTP module tests completed!");

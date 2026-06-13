@@ -1,0 +1,22 @@
+// Local Package Example
+package main;
+
+// Import local package from packages/
+import utils from "./packages/utils/index.gk";
+
+func main() {
+    print("=== Local Package Import ===");
+    
+    print("utils.double(5) = " + utils.double(5));
+    print("utils.triple(4) = " + utils.triple(4));
+    print("utils.isPositive(10) = " + utils.isPositive(10));
+    print("utils.isPositive(-5) = " + utils.isPositive(-5));
+    print("utils.factorial(5) = " + utils.factorial(5));
+    print("utils.fibonacci(10) = " + utils.fibonacci(10));
+    
+    print("\n=== Package Variables ===");
+    print("utils.VERSION = " + utils.VERSION);
+    print("utils.AUTHOR = " + utils.AUTHOR);
+}
+
+main();

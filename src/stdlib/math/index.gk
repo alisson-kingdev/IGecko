@@ -1,0 +1,352 @@
+package math;
+
+/**
+ * Ensures input is a number. Returns a default value if not.
+ */
+func _assertNum(val, def) {
+    if (typeOf(val) != "number") return def;
+    return val;
+}
+
+func abs(x) {
+    x = _assertNum(x, 0);
+    if (x < 0) {
+        return -x;
+    }
+    return x;
+}
+
+func add(x, y) {
+    return _assertNum(x, 0) + _assertNum(y, 0);
+}
+
+func sub(x, y) {
+    return _assertNum(x, 0) - _assertNum(y, 0);
+}
+
+func mul(x, y) {
+    return _assertNum(x, 0) * _assertNum(y, 0);
+}
+
+func div(x, y) {
+    x = _assertNum(x, 0);
+    y = _assertNum(y, 1);
+    if (y == 0) {
+        return 0;
+    }
+    return x / y;
+}
+
+func min(x, y) {
+    x = _assertNum(x, 0);
+    y = _assertNum(y, 0);
+    if (x < y) {
+        return x;
+    }
+    return y;
+}
+
+func max(x, y) {
+    x = _assertNum(x, 0);
+    y = _assertNum(y, 0);
+    if (x > y) {
+        return x;
+    }
+    return y;
+}
+
+func clamp(value, minVal, maxVal) {
+    value = _assertNum(value, 0);
+    minVal = _assertNum(minVal, 0);
+    maxVal = _assertNum(maxVal, 0);
+    if (value < minVal) {
+        return minVal;
+    }
+    if (value > maxVal) {
+        return maxVal;
+    }
+    return value;
+}
+
+func floor(x) {
+    x = _assertNum(x, 0);
+    var result = 0;
+    var i = 0;
+    while (i <= x) {
+        result = i;
+        i = i + 1;
+    }
+    if (x < 0) {
+        if (result != x) {
+            return result - 1;
+        }
+    }
+    return result;
+}
+
+func ceil(x) {
+    x = _assertNum(x, 0);
+    var result = floor(x);
+    if (result != x) {
+        return result + 1;
+    }
+    return result;
+}
+
+func round(x) {
+    x = _assertNum(x, 0);
+    var intPart = floor(x);
+    var frac = x - intPart;
+    if (frac >= 0.5) {
+        return intPart + 1;
+    }
+    return intPart;
+}
+
+func sqrt(x) {
+    x = _assertNum(x, 0);
+    if (x < 0) {
+        return 0;
+    }
+    if (x == 0) {
+        return 0;
+    }
+    var guess = x / 2;
+    var i = 0;
+    while (i < 20) {
+        guess = (guess + x / guess) / 2;
+        i = i + 1;
+    }
+    return guess;
+}
+
+func cbrt(x) {
+    x = _assertNum(x, 0);
+    if (x == 0) {
+        return 0;
+    }
+    var guess = abs(x);
+    var i = 0;
+    while (i < 20) {
+        guess = (2 * guess + x / (guess * guess)) / 3;
+        i = i + 1;
+    }
+    if (x < 0) {
+        return -guess;
+    }
+    return guess;
+}
+
+func pow(x, y) {
+    x = _assertNum(x, 0);
+    y = _assertNum(y, 0);
+    if (y == 0) {
+        return 1;
+    }
+    if (y < 0) {
+        return 1 / pow(x, -y);
+    }
+    if (y == floor(y)) {
+        var result = 1;
+        var i = 0;
+        while (i < y) {
+            result = result * x;
+            i = i + 1;
+        }
+        return result;
+    }
+    return exp(y * log(x));
+}
+
+func exp(x) {
+    x = _assertNum(x, 0);
+    var result = 1;
+    var term = 1;
+    var i = 1;
+    while (i < 30) {
+        term = term * x / i;
+        result = result + term;
+        i = i + 1;
+    }
+    return result;
+}
+
+func log(x) {
+    x = _assertNum(x, 0);
+    if (x <= 0) {
+        return 0;
+    }
+    var guess = 0;
+    var iterations = 0;
+    while (iterations < 50) {
+        var expGuess = exp(guess);
+        var diff = x - expGuess;
+        if (abs(diff) < 0.0000001) {
+            break;
+        }
+        guess = guess + diff / expGuess;
+        iterations = iterations + 1;
+    }
+    return guess;
+}
+
+func log10(x) {
+    return log(_assertNum(x, 1)) / log(10);
+}
+
+func log2(x) {
+    return log(_assertNum(x, 1)) / log(2);
+}
+
+func sin(x) {
+    x = _assertNum(x, 0);
+    var x2 = x * x;
+    var result = x;
+    var term = x;
+    var i = 3;
+    while (i < 20) {
+        term = term * -x2 / ((i - 1) * i);
+        result = result + term;
+        i = i + 2;
+    }
+    return result;
+}
+
+func cos(x) {
+    x = _assertNum(x, 0);
+    var x2 = x * x;
+    var result = 1;
+    var term = 1;
+    var i = 2;
+    while (i < 20) {
+        term = term * -x2 / ((i - 1) * i);
+        result = result + term;
+        i = i + 2;
+    }
+    return result;
+}
+
+func tan(x) {
+    x = _assertNum(x, 0);
+    var c = cos(x);
+    if (abs(c) < 0.0000001) {
+        return 0;
+    }
+    return sin(x) / c;
+}
+
+func asin(x) {
+    x = _assertNum(x, 0);
+    if (x > 1) {
+        return 0;
+    }
+    if (x < -1) {
+        return 0;
+    }
+    return atan(x / sqrt(1 - x * x));
+}
+
+func acos(x) {
+    x = _assertNum(x, 0);
+    if (x > 1) {
+        return 0;
+    }
+    if (x < -1) {
+        return 0;
+    }
+    return 1.5707963267948966 - asin(x);
+}
+
+func atan(x) {
+    x = _assertNum(x, 0);
+    if (abs(x) > 1) {
+        return 1.5707963267948966 - atan(1 / x);
+    }
+    var result = x;
+    var term = x;
+    var x2 = x * x;
+    var i = 1;
+    while (i < 50) {
+        term = term * -x2;
+        result = result + term / (2 * i + 1);
+        i = i + 1;
+    }
+    return result;
+}
+
+func atan2(y, x) {
+    y = _assertNum(y, 0);
+    x = _assertNum(x, 1);
+    if (x > 0) {
+        return atan(y / x);
+    }
+    if (x < 0) {
+        if (y >= 0) {
+            return atan(y / x) + 3.141592653589793;
+        }
+        return atan(y / x) - 3.141592653589793;
+    }
+    if (y > 0) {
+        return 1.5707963267948966;
+    }
+    if (y < 0) {
+        return -1.5707963267948966;
+    }
+    return 0;
+}
+
+func sinh(x) {
+    x = _assertNum(x, 0);
+    return (exp(x) - exp(-x)) / 2;
+}
+
+func cosh(x) {
+    x = _assertNum(x, 0);
+    return (exp(x) + exp(-x)) / 2;
+}
+
+func tanh(x) {
+    x = _assertNum(x, 0);
+    var ex = exp(x);
+    var emx = exp(-x);
+    return (ex - emx) / (ex + emx);
+}
+
+func hypot(x, y) {
+    x = _assertNum(x, 0);
+    y = _assertNum(y, 0);
+    return sqrt(x * x + y * y);
+}
+
+func degrees(radians) {
+    return _assertNum(radians, 0) * 180 / 3.141592653589793;
+}
+
+func radians(degrees) {
+    return _assertNum(degrees, 0) * 3.141592653589793 / 180;
+}
+
+func sign(x) {
+    x = _assertNum(x, 0);
+    if (x > 0) {
+        return 1;
+    }
+    if (x < 0) {
+        return -1;
+    }
+    return 0;
+}
+
+func pi() {
+    return 3.141592653589793;
+}
+
+func e() {
+    return 2.718281828459045;
+}
+
+func constants() {
+    return { pi: pi(), e: e() };
+}
+
+export { abs, add, sub, mul, div, min, max, clamp, floor, ceil, round, sqrt, cbrt, pow, exp, log, log10, log2, sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, hypot, degrees, radians, sign, pi, e, constants };

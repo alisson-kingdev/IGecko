@@ -1,0 +1,47 @@
+package main;
+
+import math from "math";
+
+func main() {
+    print("=== Math Library Examples ===");
+    
+    // Test basic constants
+    print("PI = " + math.pi());
+    print("E = " + math.e());
+    
+    // Test basic operations
+    print("abs(-5) = " + math.abs(-5));
+    print("max(3, 7) = " + math.max(3, 7));
+    print("min(3, 7) = " + math.min(3, 7));
+    print("clamp(5, 1, 10) = " + math.clamp(5, 1, 10));
+    print("clamp(0, 1, 10) = " + math.clamp(0, 1, 10));
+    print("clamp(15, 1, 10) = " + math.clamp(15, 1, 10));
+    
+    // Test rounding
+    print("floor(3.7) = " + math.floor(3.7));
+    print("ceil(3.2) = " + math.ceil(3.2));
+    print("round(3.5) = " + math.round(3.5));
+    print("round(3.4) = " + math.round(3.4));
+    
+    // Test power and sqrt
+    print("pow(2, 3) = " + math.pow(2, 3));
+    print("sqrt(16) = " + math.sqrt(16));
+    print("cbrt(27) = " + math.cbrt(27));
+    
+    // Test exp and log
+    print("exp(1) = " + math.exp(1));
+    print("log(2.718281828) ≈ " + math.log(2.718281828));
+    print("log10(100) = " + math.log10(100));
+    
+    // Test trigonometry (in radians)
+    print("sin(0) = " + math.sin(0));
+    print("cos(0) = " + math.cos(0));
+    print("tan(0) = " + math.tan(0));
+    print("sin(PI/2) = " + math.sin(math.pi() / 2));
+    
+    // Test angle conversion
+    print("radians(180) = " + math.radians(180));
+    print("degrees(PI) = " + math.degrees(math.pi()));
+}
+
+main();
